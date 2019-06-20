@@ -5,6 +5,10 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-plot-axis": "github:twisttrl/react-plot-axis#v0.1.0",
+    "react-plot-axis-panel": "github:twisttrl/react-plot-axis-panel",
+    "react-plot-containers": "github:twisttrl/react-plot-containers#v0.1.0",
+    "react-plot-gradient-overlay": "github:twisttrl/react-plot-gradient-overlay#v0.1.0",
     "react-scripts": "3.0.1"
   },
   "scripts": {
