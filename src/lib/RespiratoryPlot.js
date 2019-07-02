@@ -5,6 +5,8 @@ import {PlotContainer, PlotSubContainer} from "react-plot-containers";
 import {StaticYPanel} from "react-plot-axis-panel";
 import {DateXAxis, DateVerticalLineGrid} from "react-plot-axis";
 import GradientOverlay from "react-plot-gradient-overlay";
+import LocationPlot, {LocationPlotSelectionLabel,LocationPlotHoverSelector} from "react-location-plot";
+import {PlotInteractionProvider,INTERACTION_MODEL_BARE} from "react-plot-interaction-box";
 // Some specialized components
 import RespiratoryTypeYAxisSlabGrid from "./components/RespiratoryTypeYAxisSlabGrid";
 import RespiratoryTypeYAxisPanel from "./components/RespiratoryTypeYAxisPanel";
@@ -26,8 +28,19 @@ const TIME_PANEL_STRUCTURE = [
 ];
 
 class RespiratoryPlot extends PureComponent {
+  constructor(props){
+    super(props);
+    this.state = {selectedLocationID:null,
+                  };
+  }
+
+  selectLocation = (id)=>{
+    this.setState({selectedLocationID:id});
+  }
+  
   render(){
-    let {minX,maxX,width,height} = this.props;
+    let {minX,maxX,width,height,locations} = this.props;
+    let {selectedLocationID} = this.state;
     let plotWidth = width - LEFT_WIDTH - RIGHT_WIDTH;
     let plotHeight = height - TOP_HEIGHT - BOTTOM_HEIGHT;
     return (
@@ -47,7 +60,32 @@ class RespiratoryPlot extends PureComponent {
                         />
         </PlotSubContainer>
         <PlotSubContainer>
-          {/*STUFF HERE*/}
+          <LocationPlot   width={plotWidth}
+                          height={TOP_HEIGHT}
+                          minX={minX}
+                          maxX={maxX}
+                          data={locations}
+                          />
+          <LocationPlotSelectionLabel width={plotWidth}
+                                      height={TOP_HEIGHT}
+                                      minX={minX}
+                                      maxX={maxX}
+                                      data={locations}
+                                      selection={selectedLocationID}
+                                      />
+          <PlotInteractionProvider  width={plotWidth} height={TOP_HEIGHT}
+                                    transitionGraph={INTERACTION_MODEL_BARE}
+                                    render={(positions)=>
+            <>
+              <LocationPlotHoverSelector  data={locations}
+                                          minX={minX}
+                                          maxX={maxX}
+                                          width={plotWidth}
+                                          hoveringPosition={positions.hoveringPosition}
+                                          selectHandler={this.selectLocation}
+                                          />
+            </>
+                                    }/>
         </PlotSubContainer>
         <PlotSubContainer>
           {/*STUFF HERE*/}
@@ -96,7 +134,7 @@ class RespiratoryPlot extends PureComponent {
           {/*STUFF HERE*/}
         </PlotSubContainer>
         {/*Other absolutely positioned stuff*/}
-        <div style={{position:"absolute",left:LEFT_WIDTH}}>
+        <div style={{position:"absolute",left:LEFT_WIDTH,pointerEvents:"none"}}>
           <GradientOverlay  width={10}
                             height={height}
                             />
@@ -111,6 +149,7 @@ RespiratoryPlot.propTypes = {
   height: PropTypes.number.isRequired,
   minX: PropTypes.number.isRequired,
   maxX: PropTypes.number.isRequired,
+  locations: PropTypes.object.isRequired,
   //~ RSS_score, // [ {time,score} ]
   //~ RSS_variables, // [ {time,...variables} ]
   //~ locations, // [ {time,start,end,name} ]
