@@ -1,24 +1,7 @@
 {
   "name": "react-respiratory-plot",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-location-plot": "github:twisttrl/react-location-plot",
-    "react-plot-axis": "github:twisttrl/react-plot-axis#v0.1.0",
-    "react-plot-axis-panel": "github:twisttrl/react-plot-axis-panel#v0.1.0",
-    "react-plot-containers": "github:twisttrl/react-plot-containers#v0.1.0",
-    "react-plot-gradient-overlay": "github:twisttrl/react-plot-gradient-overlay#v0.1.0",
-    "react-plot-interaction-box": "github:twisttrl/react-plot-interaction-box#v0.1.0",
-    "react-scripts": "3.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "description": "...",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -33,5 +16,66 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twisttrl/react-respiratory-plot.git"
+  },
+  "author": "Lingyu Zhou",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/twisttrl/react-respiratory-plot/issues"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "gh-pages": "^2.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^2.1.8"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "dist": "export NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/lib --out-dir dist --copy-files",
+    "test": "react-scripts build",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "homepage": "https://twisttrl.github.io/react-respiratory-plot",
+  "dependencies": {
+    "plot-utils": "github:zhoulytwinyu/plot-utils#v0.1.0",
+    "memoize": "github:zhoulytwinyu/memoize#v0.1.0",
+    "react": "^16.8.6",
+    "react-location-plot": "github:twisttrl/react-location-plot",
+    "react-onplot-xranger": "github:twisttrl/react-onplot-xranger",
+    "react-plot-axis": "github:twisttrl/react-plot-axis#v0.1.0",
+    "react-plot-axis-panel": "github:twisttrl/react-plot-axis-panel#v0.1.0",
+    "react-plot-containers": "github:twisttrl/react-plot-containers#v0.1.0",
+    "react-plot-gradient-overlay": "github:twisttrl/react-plot-gradient-overlay#v0.1.0",
+    "react-plot-interaction-box": "github:twisttrl/react-plot-interaction-box",
+    "react-plot-vertical-crosshair": "github:twisttrl/react-plot-vertical-crosshair",
+    "react-respiratoryscore-tooltip": "github:twisttrl/react-respiratoryscore-tooltip"
   }
 }
