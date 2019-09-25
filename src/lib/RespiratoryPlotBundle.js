@@ -50,7 +50,7 @@ class RespiratoryPlotBundle extends PureComponent {
           iNOAdministration,
           anestheticsAdministration,
           location,
-          crosshairDataX,
+          crosshairX,
           startX,endX,
           } = this.props;
     let { tooltip__selectedLocationID,
@@ -140,7 +140,7 @@ class RespiratoryPlotBundle extends PureComponent {
                               height={plotHeight}
                               minX={minX}
                               maxX={maxX}
-                              X={crosshairDataX}
+                              X={crosshairX}
                               />
           <PlotInteractionProvider  width={plotWidth} height={plotHeight}
                                     transitionGraph={INTERACTION_MODEL_BARE}
@@ -242,8 +242,9 @@ class RespiratoryPlotBundle extends PureComponent {
     this.setState({location__selectedLocationID});
   }
   
-  selectCrosshair = (crosshair__hoveringDataX)=>{
-    this.setState({crosshair__hoveringDataX});
+  selectCrosshair = (crosshairX)=>{
+    let {crosshairUpdateHandler} = this.props;
+    crosshairUpdateHandler(crosshairX)
   }
 
   selectTooltip =  (tooltip__hoveringTimeStamp,

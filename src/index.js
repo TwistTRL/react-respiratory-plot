@@ -19,21 +19,28 @@ class App extends Component {
   
   render() {
     let { startX,endX,
-          minX,maxX} = this.state;
+          minX,maxX,
+          crosshairX} = this.state;
     return <RespiratoryPlotBundle height={400}
                                   width={800}
                                   minX={minX}
                                   maxX={maxX}
                                   startX={startX}
-                                  endX={endX}
+                                  endX={endX}                                  
                                   respiratorySupportVariable={RESPIRTORY_SUPPORT_VARIABLE}
                                   iNOAdministration={INO_ADMINISTRATION}
                                   anestheticsAdministration={ANESTHETICS_ADMINISTRATION}
                                   location={LOCATION}
+                                  crosshairX={crosshairX}
                                   rangerUpdatingHandler={this.handleRangerUpdating}
                                   rangerUpdateHandler={this.handleRangerUpdate}
                                   rangerClickHandler={this.handleRangerClick}
+                                  crosshairUpdateHandler={this.handleCrosshairUpdate}
                                   />
+  }
+
+  handleCrosshairUpdate = (crosshairX)=>{
+    this.setState({crosshairX});
   }
 
   handleRangerUpdating = (startX,endX)=>{
