@@ -19,7 +19,7 @@ import RespiratoryScorePlot from "./RespiratoryScorePlot";
 const MINY = 0;
 const MAXY = 100;
 
-const LEFT_WIDTH = 150
+const LEFT_WIDTH = 200
 const RIGHT_WIDTH = 0
 const TOP_HEIGHT = 30
 const BOTTOM_HEIGHT = 30
