@@ -61,7 +61,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 var MINY = 0;
 var MAXY = 100;
-var LEFT_WIDTH = 150;
+var LEFT_WIDTH = 200;
 var RIGHT_WIDTH = 0;
 var TOP_HEIGHT = 30;
 var BOTTOM_HEIGHT = 30;
@@ -108,10 +108,9 @@ function (_PureComponent) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "selectCrosshair", function (crosshair__hoveringDataX) {
-      _this.setState({
-        crosshair__hoveringDataX: crosshair__hoveringDataX
-      });
+    _defineProperty(_assertThisInitialized(_this), "selectCrosshair", function (crosshairX) {
+      var crosshairUpdateHandler = _this.props.crosshairUpdateHandler;
+      crosshairUpdateHandler(crosshairX);
     });
 
     _defineProperty(_assertThisInitialized(_this), "selectTooltip", function (tooltip__hoveringTimeStamp, tooltip__selectedLocationID, tooltip__selectedRespiratorySupportVariableID, tooltip__hoveringClientX, tooltip__hoveringClientY) {
@@ -169,7 +168,7 @@ function (_PureComponent) {
           iNOAdministration = _this$props.iNOAdministration,
           anestheticsAdministration = _this$props.anestheticsAdministration,
           location = _this$props.location,
-          crosshairDataX = _this$props.crosshairDataX,
+          crosshairX = _this$props.crosshairX,
           startX = _this$props.startX,
           endX = _this$props.endX;
       var _this$state = this.state,
@@ -252,7 +251,7 @@ function (_PureComponent) {
         height: plotHeight,
         minX: minX,
         maxX: maxX,
-        X: crosshairDataX
+        X: crosshairX
       }), _react.default.createElement(_reactPlotInteractionBox.PlotInteractionProvider, {
         width: plotWidth,
         height: plotHeight,
