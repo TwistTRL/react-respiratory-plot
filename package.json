@@ -65,7 +65,7 @@
   "module": "dist/index.js",
   "homepage": "https://twisttrl.github.io/react-respiratory-plot",
   "dependencies": {
-    "plot-utils": "github:zhoulytwinyu/plot-utils#v0.1.0",
+    "plot-utils": "github:TwistTRL/plot-utils",
     "memoize": "github:zhoulytwinyu/memoize#v0.1.0",
     "react": "^16.8.6",
     "react-location-plot": "github:twisttrl/react-location-plot",
