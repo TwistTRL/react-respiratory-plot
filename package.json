@@ -76,6 +76,6 @@
     "react-plot-gradient-overlay": "github:twisttrl/react-plot-gradient-overlay#v0.1.0",
     "react-plot-interaction-box": "github:twisttrl/react-plot-interaction-box",
     "react-plot-vertical-crosshair": "github:twisttrl/react-plot-vertical-crosshair",
-    "react-respiratoryscore-tooltip": "github:twisttrl/react-respiratoryscore-tooltip#2d8fb15a69a1c6a00699599e82a5d2377d6060c0"
+    "react-respiratoryscore-tooltip": "github:twisttrl/react-respiratoryscore-tooltip"
   }
 }
